@@ -7,15 +7,24 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Micro Skill Builder App',
-      description: 'AI-powered communication improvement app using phone camera to analyze posture, voice, and facial expressions for real-time feedback on presentation skills.',
-      tech: ['Flutter', 'Firebase', 'TensorFlow Lite', 'OpenAI Whisper', 'MediaPipe'],
+      title: 'Premium Luxury Travel Website',
+      description: 'Full-featured luxury travel website with dark theme and glassmorphism design. Showcases exclusive destinations, premium packages, and unforgettable experiences with smooth animations, full-screen imagery, and seamless booking flows.',
+      tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
       liveLink: '#',
       githubLink: '#',
       featured: true,
     },
     {
       id: 2,
+      title: 'Micro Skill Builder App',
+      description: 'AI-powered communication improvement app using phone camera to analyze posture, voice, and facial expressions for real-time feedback on presentation skills.',
+      tech: ['Flutter', 'Firebase', 'TensorFlow Lite', 'OpenAI Whisper', 'MediaPipe'],
+      liveLink: '#',
+      githubLink: '#',
+      featured: false,
+    },
+    {
+      id: 3,
       title: 'Mental Health Awareness Website',
       description: 'Responsive multi-page website with animated splash screen, secure sign-up forms, custom page editor, and volunteer engagement features focusing on mental health advocacy.',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'Form Validation'],
@@ -24,19 +33,10 @@ export default function Projects() {
       featured: false,
     },
     {
-      id: 3,
+      id: 4,
       title: 'Gem Luster E-commerce Platform',
       description: 'Mobile-first e-commerce prototype connecting Sri Lankan gem vendors with global buyers. Features 3D gem previews, certified listings, and secure chat functionality.',
       tech: ['Figma', 'UX Research', 'Requirements Gathering', 'SDLC'],
-      liveLink: '#',
-      githubLink: '#',
-      featured: false,
-    },
-    {
-      id: 4,
-      title: 'Solar Energy Management App',
-      description: 'Mobile application for managing and monitoring solar energy systems with real-time energy tracking, smart device control, and maintenance support.',
-      tech: ['Figma', 'UI/UX Design', 'Mobile Design'],
       liveLink: '#',
       githubLink: '#',
       featured: false,
@@ -90,11 +90,12 @@ export default function Projects() {
             <div className="grid md:grid-cols-2 gap-8">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="h-64 md:h-auto bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-purple-500/10 rounded-lg overflow-hidden flex items-center justify-center"
+                className="h-64 md:h-auto bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-lg overflow-hidden flex items-center justify-center relative"
               >
-                <div className="text-center">
-                  <div className="text-4xl font-bold gradient-text mb-2">MSB</div>
-                  <p className="text-foreground/60 text-sm">Micro Skill Builder</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="text-center relative z-10">
+                  <div className="text-5xl font-bold gradient-text mb-2">✈️</div>
+                  <p className="text-foreground/80 text-sm font-semibold">Luxury Travel Platform</p>
                 </div>
               </motion.div>
 
