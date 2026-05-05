@@ -21,7 +21,7 @@ export default function Projects() {
       tech: ['Flutter', 'Firebase', 'TensorFlow Lite', 'OpenAI Whisper', 'MediaPipe'],
       liveLink: '#',
       githubLink: '#',
-      featured: false,
+      featured: true,
     },
     {
       id: 3,
@@ -78,7 +78,7 @@ export default function Projects() {
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        {/* Featured Project */}
+        {/* Featured Projects */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,69 +86,78 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="glass-card group cursor-pointer hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
-            <div className="grid md:grid-cols-2 gap-8">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="h-64 md:h-auto bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-lg overflow-hidden flex items-center justify-center relative"
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.slice(0, 2).map((project) => (
+              <div
+                key={project.id}
+                className="glass-card group cursor-pointer hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 flex flex-col"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                <div className="text-center relative z-10">
-                  <div className="text-5xl font-bold gradient-text mb-2">✈️</div>
-                  <p className="text-foreground/80 text-sm font-semibold">Luxury Travel Platform</p>
-                </div>
-              </motion.div>
-
-              <div className="flex flex-col justify-between">
-                <div>
-                  <div className="inline-block mb-2">
-                    <span className="px-3 py-1 bg-blue-500/20 border border-blue-500/50 rounded-full text-xs font-semibold text-blue-300">Featured Project</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                    {projects[0].title}
-                  </h3>
-                  <p className="text-foreground/80 text-base leading-relaxed mb-6">
-                    {projects[0].description}
-                  </p>
-                </div>
-
-                <div>
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-accent mb-3">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {projects[0].tech.map((t) => (
-                        <motion.span
-                          key={t}
-                          whileHover={{ scale: 1.05 }}
-                          className="px-3 py-1 text-xs font-medium bg-white/5 border border-white/10 rounded-md text-foreground/70 hover:text-accent transition-colors"
-                        >
-                          {t}
-                        </motion.span>
-                      ))}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="h-48 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-lg mb-6 flex items-center justify-center relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  <div className="text-center relative z-10">
+                    <div className="text-5xl font-bold mb-2">
+                      {project.id === 1 ? '✈️' : '🎤'}
                     </div>
+                    <p className="text-foreground/80 text-xs font-semibold">
+                      {project.id === 1 ? 'Travel Platform' : 'AI Communications'}
+                    </p>
+                  </div>
+                </motion.div>
+
+                <div className="flex flex-col justify-between flex-grow">
+                  <div>
+                    <div className="inline-block mb-3">
+                      <span className="px-3 py-1 bg-blue-500/20 border border-blue-500/50 rounded-full text-xs font-semibold text-blue-300">Featured Project</span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                      {project.title}
+                    </h3>
+                    <p className="text-foreground/80 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
                   </div>
 
-                  <div className="flex gap-4">
-                    <motion.a
-                      href={projects[0].liveLink}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all"
-                    >
-                      Live Demo <ExternalLink size={18} />
-                    </motion.a>
-                    <motion.a
-                      href={projects[0].githubLink}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-6 py-2 glassmorphism text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
-                    >
-                      GitHub <Github size={18} />
-                    </motion.a>
+                  <div>
+                    <div className="mb-5">
+                      <h4 className="text-xs font-semibold text-accent mb-2">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((t) => (
+                          <motion.span
+                            key={t}
+                            whileHover={{ scale: 1.05 }}
+                            className="px-2 py-1 text-xs font-medium bg-white/5 border border-white/10 rounded text-foreground/70 hover:text-accent transition-colors"
+                          >
+                            {t}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3 pt-4 border-t border-white/10">
+                      <motion.a
+                        href={project.liveLink}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 flex items-center justify-center gap-2 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-semibold rounded hover:shadow-lg hover:shadow-blue-500/30 transition-all"
+                      >
+                        Live Demo <ExternalLink size={16} />
+                      </motion.a>
+                      <motion.a
+                        href={project.githubLink}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 flex items-center justify-center gap-2 py-2 glassmorphism text-white text-sm font-semibold rounded hover:bg-white/10 transition-all"
+                      >
+                        GitHub <Github size={16} />
+                      </motion.a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </motion.div>
 
@@ -158,9 +167,9 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 gap-6"
         >
-          {projects.slice(1).map((project) => (
+          {projects.slice(2).map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
