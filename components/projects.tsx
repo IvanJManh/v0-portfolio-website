@@ -13,6 +13,7 @@ export default function Projects() {
       liveLink: '#',
       githubLink: '#',
       featured: true,
+      image:'/images/travel.png',
     },
     {
       id: 2,
